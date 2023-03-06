@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./estilos.css">
+    <link rel="stylesheet" href="./es_abajo.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
+    <link rel="shortcut icon" href="../imagenes/logo (1).png">
+
+</head>
+<body>
+      <section>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="../frontend/login.html" style="background-color:rgb(16, 68, 3); width: 300px; text-align: center; color: beige;">
+                  Veterinaria y Petshop "Lamidas"
+                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="../frontend/index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../frontend/usuario.html">Usuario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../frontend/cita.html">Citas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../frontend/servicio.html">Servicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../frontend/paciente.html">Paciente</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../frontend/historial.html">Historiañ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../frontend/factura.html">Factura</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../frontend/reporte.html">Reporte</a>
+                  </li>
+            </div>
+          </div>
+        </nav>
+      </section>
+    
+    <div class="container text-center" style="color: rgb(15, 66, 2); font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: x-large;">
+        <div class="row align-items-center">
+          <div class="col">
+
+          </div>
+          <div class="col">
+            Factura
+          </div>
+          <div class="col">
+
+          </div>
+        </div>
+      </div>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            Column
+          </div>
+          <div class="col">
+            <section style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: black; font-size: medium;">
+              <form id="insertar-factura-form">
+                <label for="tipoDocumento">Tipo de documento:</label>
+                <input type="text" id="tipoDocumento" name="tipoDocumento"><br>
+                <label for="numDocumento">Numero de documento:</label>
+                <input type="number" id="numDocumento" name="numDocumento"><br>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="codPago">Forma de pago:</label>
+                <input type="number" id="codPago" name="codPago"><br>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Codigo de servicio</th>
+                      <th>Encargado</th>
+                      <th>Animalito</th>
+                      <th>Costo Unitario</th>
+                      <th>Descripcion</th>
+                    </tr>
+                  </thead>
+                  <tbody id="detalles-factura">
+                    <tr>
+                      <td><input type="number" name="codServicio"></td>
+                      <td><input type="number" name="codEmpleado"></td>
+                      <td><input type="number" name="codPaciente"></td>
+                      <td><input type="number" name="costoUnitario"></td>
+                      <td><input type="text" name="descripcion"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="5"><button type="button" id="agregar-factura">Agregar Detalle</button></td>
+                    </tr>
+                  </tbody>      
+                </table>
+                <button type="submit">Insertar Venta</button>
+              </form>
+              
+              <script src="./add.js"></script>
+              <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+            </section>
+          </div>
+          <div class="col">
+            Column
+          </div>
+        </div>
+      </div>
+      
+
+    <footer class ="pie-pagina">
+        <div class="group-1">
+          <div class="box">
+          </div>
+          <div class="box">
+              <h2>Siguenos</h2>
+              <div class="red-social">
+                <ul>
+                  <li>
+                    <a href="" target="_blank"><i class="fab fa-facebook-f icon"></i>    </a>
+                  </li>
+                  <li>
+                    <a href=""  target="_blank"><i class="fab fa-twitter icon"></i></a>
+                  </li>
+                  <li>
+                    <a href="" target="_blank"><i class="fab fa-whatsapp icon"></i></a></li>
+                  <li>
+                    <a href="" target="_blank"><i class="fab fa-instagram icon"></i></a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="box">
+          </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
