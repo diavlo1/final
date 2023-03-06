@@ -13,7 +13,7 @@ route.post('/', async function (req, res) {
     try {
       const { nombres, paterno,materno,ci,direccion,genero,celular,fechaNacimiento,email, detalles } = req.body;
       await conexion.promise().beginTransaction();
-      const  clave= await encrypt.hash(req.body.contraseña,10);
+    //   let  clave= await encrypt.hash(req.body.contraseña,10);
       const resultVenta = await conexion.promise().query(
         'INSERT INTO usuario (nombres, paterno, materno,ci,direccion,genero,celular,fechaNacimiento,email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [nombres, paterno,materno,ci,direccion,genero,celular,fechaNacimiento,email]
@@ -24,7 +24,7 @@ route.post('/', async function (req, res) {
 
         detalles.map(detalle =>  conexion.promise().query(  
           'INSERT INTO login (codUsuario,usuario, contraseña, usuResponsable) VALUES (?, ?, ?, ?)',
-          [codUsuario,detalle.usuario,clave, detalle.usuResponsable]
+          [codUsuario,detalle.usuario, encrypt.hash(detalle.contraseña,10), detalle.usuResponsable]
         ))
       );
       
