@@ -18,6 +18,7 @@ const tipopago =require('./rutas/pago')
 const acceso = require('./rutas/acceso')
 const reporte = require('./rutas/reporte')
 const add = require('./rutas/addFac')
+const logusu = require('./rutas/usulog')
 
 app.use('/login',login);
 app.use('/historial',historial);
@@ -32,6 +33,7 @@ app.use('/pago',tipopago);
 app.use('/acc',acceso);
 app.use('/repor',reporte);
 app.use('/add',add);
+app.use('/logusu',logusu);
 
 const puerto = 3000
 app.listen(puerto, function() {

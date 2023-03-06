@@ -1,18 +1,20 @@
-const url='http://localhost:3000/empleado';
-const contenedor1=document.getElementById('data');
-let resultado1='';
-const carga_empleado = (empleado)=>{
-    empleado.forEach(empleado => {
-        resultado1+=`<tr style="border-bottom: 1px solid  #6c567b">
-                          <td>${empleado.codEmpleado}</td>
-                          <td>${empleado.tipoEmpleado}</td>
-                          <td>${empleado.sueldo}</td>
-                          <td>${empleado.codUsuario}</td>
+const url='http://localhost:3000/login';
+const contenedor=document.getElementById('data');
+let resultado='';
+const carga_cita = (cita)=>{
+    cita.forEach(cita => {
+        resultado+=`<tr style="border-bottom: 1px solid  #6c567b">
+                          <td>${cita.codCita}</td>
+                          <td>${cita.codPaciente}</td>
+                          <td>${cita.fecha}</td>
+                          <td>${cita.descripcion}</td>
+                          <td>${cita.fechaProxima}</td>
+                          <td>${cita.hora}</td>
                           <td style="cursor:pointer" bgcolor="#f67280" ><a  class='btnDelete' >Eliminar</a></td>
                           <td style="cursor:pointer" bgcolor="#ffbfb0" ><a class='btnEditar' >Editar</a></td>
                           </tr>`
     });
-    contenedor1.innerHTML=resultado1;
+    contenedor.innerHTML=resultado;
 }  
 const on=(element,event,selector,handler)=>{
     element.addEventListener(event, e =>{
@@ -31,15 +33,17 @@ on (document,'click','.btnDelete', e=>{
 })
 //-------------POST
 let operacion='adicionar'
-form_empleado.addEventListener('submit',(e)=>{
+form_login.addEventListener('submit',(e)=>{
     e.preventDefault()
+    var usuResponsable = ("xlea")
     if(operacion=='adicionar'){
         fetch(url,{ method:'POST',
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
-            tipoEmpleado:tipoEmpleado.value,
-            sueldo:sueldo.value,
-            codUsuario:codUsuario.value
+            usuario:usuario.value,
+            descripcion:descripcion.value,
+            fechaProxima:fechaProxima.value,
+            hora:hora.value
  })
 })
         .then(response => response.json())
@@ -52,12 +56,13 @@ form_empleado.addEventListener('submit',(e)=>{
         .then(()=>location.reload())
 }
     if(operacion=='modificar'){
-        fetch(url+'/'+codEmpleado,{method:'PUT',
+        fetch(url+'/'+codCita,{method:'PUT',
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
-            tipoEmpleado:tipoEmpleado.value,
-            sueldo:sueldo.value,
-            codUsuario:codUsuario.value
+            codPaciente:codPaciente.value,
+            descripcion:descripcion.value,
+            fechaProxima:fechaProxima.value,
+            hora:hora.value
         })
         })
         .then(response => response.json())
@@ -69,17 +74,19 @@ form_empleado.addEventListener('submit',(e)=>{
         .then(()=>location.reload())
     }
 })
-let codEmpleado=0;
+let codCita=0;
 on(document,'click','.btnEditar',e=>{
     const fila=e.target.parentNode.parentNode
-    codEmpleado=fila.children[0].innerHTML
-    const ftipoEmpleado=fila.children[1].innerHTML
-    const fsueldo=fila.children[2].innerHTML
-    const fcodUsuario=fila.children[3].innerHTML
+    codCita=fila.children[0].innerHTML
+    const fcodPac=fila.children[1].innerHTML
+    const fdescripcion=fila.children[3].innerHTML
+    const ffecha=fila.children[4].innerHTML
+    const fhora=fila.children[5].innerHTML
 
-    tipoEmpleado.value=ftipoEmpleado,
-    sueldo.value=fsueldo,
-    codUsuario.value=fcodUsuario
+    codPaciente.value=fcodPac,
+    descripcion.value=fdescripcion,
+    fechaProxima.value=ffecha,
+    hora.value=fhora
     operacion='modificar'
     chil
 })
