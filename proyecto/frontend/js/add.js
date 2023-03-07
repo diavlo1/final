@@ -3,6 +3,10 @@ document.getElementById('insertar-factura-form').addEventListener('submit', func
     event.preventDefault();
     const url='http://localhost:3000/add';
 
+<<<<<<< HEAD:proyecto/frontend/js/add.js
+=======
+
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/add.js
     const formData = new FormData(event.target);
     const detalles = [];
     
@@ -64,7 +68,10 @@ axios.get(url)
     add.forEach(function(factura) {
       const fila = tablaFacturas.insertRow();
       fila.insertCell().innerText = factura.codFactura;
+<<<<<<< HEAD:proyecto/frontend/js/add.js
       fila.insertCell().innerText = factura.codDetalleFactura;
+=======
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/add.js
       fila.insertCell().innerText = factura.tipoDocumento;
       fila.insertCell().innerText = factura.numDocumento;
       fila.insertCell().innerText = factura.nombre;

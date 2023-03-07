@@ -1,18 +1,13 @@
-<<<<<<< HEAD:proyecto/frontend/js/registro.js
-
-=======
-const url2='http://localhost:3000/empleado'
+const url2='http://localhost:3000/login'
 const contenedor1=document.getElementById('data1');
 let resultado1='';
-const carga_empleado = (empleado)=>{
-    empleado.forEach(empleado => {
+const carga_login = (login)=>{
+    login.forEach(login => {
         resultado1+=`<tr style="border-bottom: 1px solid  #6c567b">
-                          <td>${empleado.codEmpleado}</td>
-                          <td>${empleado.tipoEmpleado}</td>
-                          <td>${empleado.sueldo}</td>
-                          <td>${empleado.ci}</td>
-                          <td style="cursor:pointer" bgcolor="#f67280" ><a  class='btnDelete1' >Eliminar</a></td>
-                          <td style="cursor:pointer" bgcolor="#ffbfb0" ><a class='btnEditar1' >Editar</a></td>
+                          <td>${login.usuario}</td>
+                          <td>${login.contraseña}</td>
+                          <td>${login.codUsuario}</td>
+                          <td>${login.usuResponsable}</td>
                           </tr>`
     });
     contenedor1.innerHTML=resultado1;
@@ -35,33 +30,35 @@ on (document,'click','.btnDelete1', e=>{
 })
 //-------------POST
 let operacion1='adicionar'
-form_empleado.addEventListener('submit',(e)=>{
+form_login.addEventListener('submit',(e)=>{
     e.preventDefault()
     if(operacion1=='adicionar'){
         fetch(url2,{ method:'POST',
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
-            tipoEmpleado:tipoEmpleado.value,
-            sueldo:sueldo.value,
-            ci:ci.value
+            usuario:usuario.value,
+            contraseña:contraseña.value,
+            codUsuario:codUsuario.value,
+            usuResponsable:usuResponsable.value
  })
 })
         .then(response => response.json())
-        .then (data => {
+        .then (data1 => {
             const nuevo_producto=[]
-            nuevo_producto.push(data)
+            nuevo_producto.push(data1)
             //carga_ciudad(nuevo_producto);
 
         })
         .then(()=>location.reload())
 }
     if(operacion1=='modificar'){
-        fetch(url2+'/'+codEmpleado,{method:'PUT',
+        fetch(url2+'/'+usuario,{method:'PUT',
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
-            tipoEmpleado:tipoEmpleado.value,
-            sueldo:sueldo.value,
-            ci:ci.value
+            usuario:usuario.value,
+            contraseña:contraseña.value,
+            codUsuario:codUsuario.value,
+            usuResponsable:usuResponsable.value
         })
         })
         .then(response => response.json())
@@ -73,35 +70,20 @@ form_empleado.addEventListener('submit',(e)=>{
         .then(()=>location.reload())
     }
 })
-let codEmpleado=0;
-on(document,'click','.btnEditar1',e=>{
-    const fila=e.target.parentNode.parentNode
-    codEmpleado=fila.children[0].innerHTML
-    const ftipoEmpleado=fila.children[1].innerHTML
-    const fci=fila.children[2].innerHTML
 
-    tipoEmpleado.value=ftipoEmpleado,
-    ci.value=ci
-    operacion1='modificar'
-})
 fetch(url2)
 .then(response => response.json())
  .then(data1 => carga_empleado(data1))
 .catch(error => console.log(error))
 
 //----------------------
->>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/usuario.js
 const url='http://localhost:3000/usuario';
 const contenedor=document.getElementById('data');
 let resultado='';
 const carga_usuario = (usuario)=>{
     usuario.forEach(usuario => {
         resultado+=`<tr style="border-bottom: 1px solid  #6c567b">
-<<<<<<< HEAD:proyecto/frontend/js/registro.js
                          <td>${usuario.ci}</td>
-=======
-                        <td>${usuario.ci}</td>
->>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/usuario.js
                           <td>${usuario.nombres}</td>
                           <td>${usuario.paterno}</td>
                           <td>${usuario.materno}</td>
@@ -116,15 +98,9 @@ const carga_usuario = (usuario)=>{
     });
     contenedor.innerHTML=resultado;
 }  
-const a=(element,event,selector,handler)=>{
-    element.addEventListener(event, e =>{
-    if(e.target.closest(selector)){
-        handler(e)
-    }
-})
-}
+
 //------DELETE
-a (document,'click','.btnDelete', e=>{
+on (document,'click','.btnDelete', e=>{
      fila=e.target.parentNode.parentNode 
     const codigo=fila.firstElementChild.innerHTML
     fetch(url +'/'+codigo,{method:'DELETE'})
@@ -139,10 +115,6 @@ form_usuario.addEventListener('submit',(e)=>{
         fetch(url,{ method:'POST',
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
-<<<<<<< HEAD:proyecto/frontend/js/registro.js
-=======
-            
->>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/usuario.js
             ci:ci.value,
             nombres:nombres.value,
             paterno:paterno.value,
@@ -185,27 +157,24 @@ form_usuario.addEventListener('submit',(e)=>{
         .then(()=>location.reload())
     }
 })
-<<<<<<< HEAD:proyecto/frontend/js/registro.js
 let codUsuario1=0;
-a(document,'click','.btnEditar',e=>{
-=======
-let ci=0;
 on(document,'click','.btnEditar',e=>{
->>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/usuario.js
     const fila=e.target.parentNode.parentNode
-    ci=fila.children[0].innerHTML
+    codUsuario1=fila.children[0].innerHTML
     const fnom=fila.children[1].innerHTML
     const fpat=fila.children[2].innerHTML
     const fmat=fila.children[3].innerHTML
-    const fdir=fila.children[4].innerHTML
-    const fgen=fila.children[5].innerHTML
-    const fcel=fila.children[6].innerHTML
-    const ffecha=fila.children[7].innerHTML
-    const femail=fila.children[8].innerHTML
-    ci.value=fci,
+    const fci=fila.children[4].innerHTML
+    const fdir=fila.children[5].innerHTML
+    const fgen=fila.children[6].innerHTML
+    const fcel=fila.children[7].innerHTML
+    const ffecha=fila.children[8].innerHTML
+    const femail=fila.children[9].innerHTML
+
     nombres.value=fnom,
     paterno.value=fpat,
     materno.value=fmat,
+    ci.value=fci,
     direccion.value=fdir,
     genero.value=fgen,
     celular.value=fcel,

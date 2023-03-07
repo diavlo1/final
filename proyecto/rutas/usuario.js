@@ -17,9 +17,15 @@ route.get('/',(req,res) => {
 })
 
 
+<<<<<<< HEAD
 route.get('/:ci',function(req,res) {
     let sql = "select ci,nombres,paterno,materno,direccion,genero,celular,date_format(fechaNacimiento,'%Y-%m-%d')AS fechaNacimiento,email from usuario where codUsuario=?;"
     conexion.query(sql,[req.params.ci],function(err,resul){
+=======
+route.get('/:codUsuario',function(req,res) {
+    let sql = "select ci,nombres,paterno,materno,direccion,genero,celular,date_format(fechaNacimiento,'%Y-%m-%d')AS fechaNacimiento,email from usuario where codUsuario=?;"
+    conexion.query(sql,[req.params.codUsuario],function(err,resul){
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68
         if(err){
             throw response.json(err.message)
         }else{
@@ -52,7 +58,11 @@ route.post('/',function(req,res) {
             }
         });
 });
+<<<<<<< HEAD
 route.put('/:ci',function(req,res) {
+=======
+route.put('/:codUsuario ',function(req,res) {
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68
     let codigo=req.params.ci;   
     let nombres =req.body.nombres ;
     let paterno =req.body.paterno ;
@@ -74,7 +84,11 @@ route.put('/:ci',function(req,res) {
             }
         }); 
  });
+<<<<<<< HEAD
  route.delete('/:ci',function(req,res) {
+=======
+ route.delete('/:ci ',function(req,res) {
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68
     let codigo = req.params.ci ;
     let sql = 'Delete from usuario where ci  = ?';
         conexion.query(sql,[codigo],function(err,resul){

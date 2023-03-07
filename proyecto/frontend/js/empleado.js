@@ -8,9 +8,15 @@ const carga_empleado = (empleado)=>{
                           <td>${empleado.codEmpleado}</td>
                           <td>${empleado.tipoEmpleado}</td>
                           <td>${empleado.sueldo}</td>
+<<<<<<< HEAD:proyecto/frontend/js/empleado.js
                           <td>${empleado.ci}</td>
                           <td style="cursor:pointer" bgcolor="#f67280" ><a  class='btnDelete1' >Eliminar</a></td>
                           <td style="cursor:pointer" bgcolor="#ffbfb0" ><a class='btnEditar1' >Editar</a></td>
+=======
+                          <td>${empleado.codUsuario}</td>
+                          <td style="cursor:pointer" bgcolor="#f67280" ><a  class='btnDelete' >Eliminar</a></td>
+                          <td style="cursor:pointer" bgcolor="#ffbfb0" ><a class='btnEditar' >Editar</a></td>
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/empleado.js
                           </tr>`
     });
     contenedor1.innerHTML=resultado1;
@@ -50,7 +56,11 @@ form_empleado.addEventListener('submit',(e)=>{
         body:JSON.stringify({
             tipoEmpleado:tipoEmpleado.value,
             sueldo:sueldo.value,
+<<<<<<< HEAD:proyecto/frontend/js/empleado.js
             ci:cie.value
+=======
+            codUsuario:codUsuario.value
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/empleado.js
  })
 })
         .then(response => response.json())
@@ -68,7 +78,11 @@ form_empleado.addEventListener('submit',(e)=>{
         body:JSON.stringify({
             tipoEmpleado:tipoEmpleado.value,
             sueldo:sueldo.value,
+<<<<<<< HEAD:proyecto/frontend/js/empleado.js
             ci:cie.value
+=======
+            codUsuario:codUsuario.value
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/empleado.js
         })
         })
         .then(response => response.json())
@@ -86,11 +100,21 @@ a(document,'click','.btnEditar1',e=>{
     codEmpleado=fila.children[0].innerHTML
     const ftipoEmpleado=fila.children[1].innerHTML
     const fsueldo=fila.children[2].innerHTML
+<<<<<<< HEAD:proyecto/frontend/js/empleado.js
     const fcie=fila.children[3].innerHTML
 
     tipoEmpleado.value=ftipoEmpleado,
     sueldo.value=fsueldo,
     cie.value=fcie
     operacion1='modificar'
+=======
+    const fcodUsuario=fila.children[3].innerHTML
+
+    tipoEmpleado.value=ftipoEmpleado,
+    sueldo.value=fsueldo,
+    codUsuario.value=fcodUsuario
+    operacion='modificar'
+    chil
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68:proyecto/frontend/empleado.js
 })
 

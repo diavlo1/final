@@ -66,7 +66,11 @@ route.post('/', async function (req, res) {
 // });
 
 route.get('/',(req, res) => {
+<<<<<<< HEAD
     let sql = "select factura.codFactura, detallefactura.codDetalleFactura,detallefactura.codPaciente,factura.numDocumento,factura.nombre, servicio.codServicio, servicio.tipoServicio, detalleFactura.costoUnitario,date_format(factura.fecha,'%Y-%m-%d %H:%i:%s')AS fecha from servicio, factura, detalleFactura where factura.codFactura=detalleFactura.codFactura and servicio.codServicio=detalleFactura.codServicio order by(factura.codFactura) desc"
+=======
+    let sql = "select factura.codFactura,factura.tipoDocumento,factura.numDocumento, factura.nombre, servicio.codServicio, servicio.tipoServicio, detalleFactura.costoUnitario, date_format(factura.fecha,'%Y-%m-%d %H:%i:%s')AS fecha from servicio, factura, detalleFactura where factura.codFactura=detalleFactura.codFactura and servicio.codServicio=detalleFactura.codServicio;"
+>>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68
     conexion.query(sql, (err, resul) => {
         if(err) {
             console.log("Error: "+err.message);
