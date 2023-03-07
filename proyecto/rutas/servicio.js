@@ -46,7 +46,7 @@ route.post('/',function(req,res) {
             }
         });
 });
-route.put('/:codUsuario ',function(req,res) {
+route.put('/:codServicio',function(req,res) {
     let  codigo   = req.params.codServicio  ;    
     let tipoServicio  =req.body.tipoServicio  ;
     let precio   =req.body.precio  ;
@@ -63,9 +63,9 @@ route.put('/:codUsuario ',function(req,res) {
             }
         }); 
  });
- route.delete('/:codServicio  ',function(req,res) {
+ route.delete('/:codServicio',function(req,res) {
     let codigo = req.params.codServicio  ;
-    let sql = 'Delete from servicio where codServicio   = ?';
+    let sql = 'Delete from servicio where codServicio = ?';
         conexion.query(sql,[codigo],function(err,resul){
             if(err){
                 console.log(err.message);

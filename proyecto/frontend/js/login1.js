@@ -20,7 +20,7 @@ FrmData.addEventListener('submit', function(e) {
         window.location = "index.html";
         }
         else{
-            confirm('datos incorrectos')
+            swal("Error", "Datos incorrectos","error");
         }
     }
         )

@@ -5,7 +5,7 @@ const jwt= require('jsonwebtoken')
 const {jwt_secret}= require('../configuracion/parametro');
 
 route.get('/',(req,res) => {
-    let sql = "select codEmpleado ,tipoEmpleado ,codUsuario from empleado;"
+    let sql = "select codEmpleado ,tipoEmpleado ,sueldo ,ci from empleado;"
     conexion.query(sql, (err, resul) => {
         if(err) {
             console.log("Error");
@@ -18,7 +18,7 @@ route.get('/',(req,res) => {
 
 
 route.get('/:codEmpleado',function(req,res) {
-    let sql = "select codEmpleado ,tipoEmpleado ,codUsuario from empleado where codEmpleado =?;"
+    let sql = "select codEmpleado ,tipoEmpleado ,sueldo ,ci from empleado where codEmpleado =?;"
     conexion.query(sql,[req.params.codEmpleado],function(err,resul){
         if(err){
             throw response.json(err.message)
@@ -31,7 +31,8 @@ route.get('/:codEmpleado',function(req,res) {
 route.post('/',function(req,res) {
     let data = {
         tipoEmpleado :req.body.tipoEmpleado ,
-        codUsuario  :req.body.codUsuario ,        
+        sueldo :req.body.sueldo ,
+        ci  :req.body.ci ,        
     }
     
     let sql = 'Insert into empleado set ?';
@@ -44,14 +45,15 @@ route.post('/',function(req,res) {
             }
         });
 });
-route.put('/:codEmpleado ',function(req,res) {
+route.put('/:codEmpleado',function(req,res) {
     let codigo   = req.params.codEmpleado  ;    
     let tipoEmpleado  =req.body.tipoEmpleado  ;
-    let codUsuario  =req.body.codUsuario  ;
+    let sueldo  =req.body.sueldo  ;
+    let ci  =req.body.ci  ;
  
 
-    let sql = 'Update empleado set tipoEmpleado = ?, tipoEmpleado = ? where codEmpleado = ?';
-        conexion.query(sql,[tipoEmpleado ,codUsuario ,codigo],function(err,resul){
+    let sql = 'Update empleado set tipoEmpleado = ?, sueldo = ?,ci = ? where codEmpleado = ?';
+        conexion.query(sql,[tipoEmpleado ,sueldo ,ci ,codigo],function(err,resul){
             if(err){
                 console.log(err.message);
                 res.json({ mensaje:'No se pudo actualizar un campo' });
@@ -61,7 +63,7 @@ route.put('/:codEmpleado ',function(req,res) {
         }); 
       
  });
- route.delete('/:codEmpleado ',function(req,res) {
+ route.delete('/:codEmpleado',function(req,res) {
     let codigo = req.params.codEmpleado ;
     let sql = 'Delete from empleado where codEmpleado = ?';
         conexion.query(sql,[codigo],function(err,resul){

@@ -50,7 +50,7 @@ route.post('/',function(req,res) {
             }
         });
 });
-route.put('/:codPaciente  ',function(req,res) {
+route.put('/:codPaciente',function(req,res) {
     let codigo  = req.params.codPaciente  ;    
     let nombreMascota  =req.body.nombreMascota  ;
     let especie  =req.body.especie  ;
@@ -71,7 +71,7 @@ route.put('/:codPaciente  ',function(req,res) {
             }
         }); 
  });
- route.delete('/:codPaciente  ',function(req,res) {
+ route.delete('/:codPaciente',function(req,res) {
     let codigo = req.params.codPaciente  ;
     let sql = 'Delete from paciente where codPaciente   = ?';
         conexion.query(sql,[codigo],function(err,resul){
