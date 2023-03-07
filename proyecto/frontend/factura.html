@@ -119,7 +119,7 @@ align-items: center;
                 <button type="submit">Insertar Venta</button>
               </form>
               
-              <script src="./add.js"></script>
+              
               <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
             </section>
           </div>
@@ -129,12 +129,11 @@ align-items: center;
         </div>
       </div>
       <br>
-      <section style="color: black; margin: 2%;">
+      <section style="color: black; margin: 2%; text-align: center;">
         <h2>Tabla de Facturas</h2>
         <table id="tabla-facturas">
           <thead>
             <tr>
-              <th></th>
               <th>Codigo Factura</th>
               <th>Tipo de documento</th>
               <th>Número de documento</th>
@@ -145,10 +144,12 @@ align-items: center;
               <th>Fecha</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="data1">
           </tbody>
         </table>
       </section>
+      <script src="./add.js"></script>
+     <script src="addfac2.js"></script> 
     <footer class ="pie-pagina">
         <div class="group-1">
           <div class="box">

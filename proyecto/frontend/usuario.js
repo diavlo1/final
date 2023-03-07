@@ -6,7 +6,8 @@ const carga_empleado = (empleado)=>{
         resultado1+=`<tr style="border-bottom: 1px solid  #6c567b">
                           <td>${empleado.codEmpleado}</td>
                           <td>${empleado.tipoEmpleado}</td>
-                          <td>${empleado.codUsuario}</td>
+                          <td>${empleado.sueldo}</td>
+                          <td>${empleado.ci}</td>
                           <td style="cursor:pointer" bgcolor="#f67280" ><a  class='btnDelete1' >Eliminar</a></td>
                           <td style="cursor:pointer" bgcolor="#ffbfb0" ><a class='btnEditar1' >Editar</a></td>
                           </tr>`
@@ -38,7 +39,8 @@ form_empleado.addEventListener('submit',(e)=>{
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
             tipoEmpleado:tipoEmpleado.value,
-            codUsuario:codUsuario.value
+            sueldo:sueldo.value,
+            ci:ci.value
  })
 })
         .then(response => response.json())
@@ -55,7 +57,8 @@ form_empleado.addEventListener('submit',(e)=>{
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
             tipoEmpleado:tipoEmpleado.value,
-            codUsuario:codUsuario.value
+            sueldo:sueldo.value,
+            ci:ci.value
         })
         })
         .then(response => response.json())
@@ -72,10 +75,10 @@ on(document,'click','.btnEditar1',e=>{
     const fila=e.target.parentNode.parentNode
     codEmpleado=fila.children[0].innerHTML
     const ftipoEmpleado=fila.children[1].innerHTML
-    const fcodUsuario=fila.children[2].innerHTML
+    const fci=fila.children[2].innerHTML
 
     tipoEmpleado.value=ftipoEmpleado,
-    codUsuario.value=fcodUsuario
+    ci.value=ci
     operacion1='modificar'
 })
 fetch(url2)
@@ -90,11 +93,10 @@ let resultado='';
 const carga_usuario = (usuario)=>{
     usuario.forEach(usuario => {
         resultado+=`<tr style="border-bottom: 1px solid  #6c567b">
-                       <td>${usuario.codUsuario}</td>
+                        <td>${usuario.ci}</td>
                           <td>${usuario.nombres}</td>
                           <td>${usuario.paterno}</td>
                           <td>${usuario.materno}</td>
-                          <td>${usuario.ci}</td>
                           <td>${usuario.direccion}</td>
                           <td>${usuario.genero}</td>
                           <td>${usuario.celular}</td>
@@ -124,10 +126,10 @@ form_usuario.addEventListener('submit',(e)=>{
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
             
+            ci:ci.value,
             nombres:nombres.value,
             paterno:paterno.value,
             materno:materno.value,
-            ci:ci.value,
             direccion:direccion.value,
             genero:genero.value,
             celular:celular.value,
@@ -147,10 +149,10 @@ form_usuario.addEventListener('submit',(e)=>{
         fetch(url+'/'+codUsuario1,{method:'PUT',
         headers:{'Content-type':'application/json'},
         body:JSON.stringify({
+            ci:ci.value,
             nombres:nombres.value,
             paterno:paterno.value,
             materno:materno.value,
-            ci:ci.value,
             direccion:direccion.value,
             genero:genero.value,
             celular:celular.value,
@@ -166,24 +168,22 @@ form_usuario.addEventListener('submit',(e)=>{
         .then(()=>location.reload())
     }
 })
-let codUsuario1=0;
+let ci=0;
 on(document,'click','.btnEditar',e=>{
     const fila=e.target.parentNode.parentNode
-    codUsuario1=fila.children[0].innerHTML
+    ci=fila.children[0].innerHTML
     const fnom=fila.children[1].innerHTML
     const fpat=fila.children[2].innerHTML
     const fmat=fila.children[3].innerHTML
-    const fci=fila.children[4].innerHTML
-    const fdir=fila.children[5].innerHTML
-    const fgen=fila.children[6].innerHTML
-    const fcel=fila.children[7].innerHTML
-    const ffecha=fila.children[8].innerHTML
-    const femail=fila.children[9].innerHTML
-
+    const fdir=fila.children[4].innerHTML
+    const fgen=fila.children[5].innerHTML
+    const fcel=fila.children[6].innerHTML
+    const ffecha=fila.children[7].innerHTML
+    const femail=fila.children[8].innerHTML
+    ci.value=fci,
     nombres.value=fnom,
     paterno.value=fpat,
     materno.value=fmat,
-    ci.value=fci,
     direccion.value=fdir,
     genero.value=fgen,
     celular.value=fcel,

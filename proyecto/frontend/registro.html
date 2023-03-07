@@ -29,22 +29,84 @@
           <div class="col">
           
           </div>
-          <div class="col-5">
-            <form name="FrmData" action="index.html">
-              <div class="mb-3">
-                <label class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="usuario" name="usuario">
-                <div id="emailHelp" class="form-text" style="color:black">Recuerda ingresar con tu usuario </div>
-              </div>
-              <div class="mb-3">
-                <label for="inputPassword5" class="form-label">Contraseña</label>
-                <input type="password" id="contraseña" name="contraseña" class="form-control" aria-describedby="passwordHelpBlock">
-                <div id="passwordHelpBlock" class="form-text" style="color:black">
-                  Ingresa la contrasela correcta
-                </div>
-              </div>
-              <button type="submit" class="btn btn-light">Ingresar</button>
+        </section>
+        <br>
 
+        <section style="color: rgb(255, 255, 255);">
+          <br>
+          <p>Llena tus datos personales</p>
+
+          <div align="center">
+          <form id='form_usuario' >
+              <table>
+                      <td>CI</td>
+                      <td><input type="text" id="ci" name="ci"></td></tr>
+                      <tr>
+                      <td>Nombres</td>
+                      <td><input type="text" id="nombres" name="nombres"></tr></td>
+                      <tr ><td>Paterno</td>
+                      <td><input type="text" id="paterno" name="paterno"></td></tr>
+                      <tr >
+                      <td>Materno</td>
+                      <td><input type="text" id="materno" name="materno"></td></tr>
+                      <tr>
+                      <td>Direccion</td>
+                      <td><input type="text" id="direccion" name="direccion"></td></tr>
+                      <tr>
+                       <td>Genero</td>
+                      <td><input type="text" id="genero" name="genero"></td> </tr>
+                       <tr>
+                       <td>Celular</td>
+                       <td><input type="text" id="celular" name="celular"></td></tr>
+                       <tr>
+                      <td>Fecha Nacimiento</td>
+                      <td><input type="date" id="fechaNacimiento" name="fechaNacimiento"></td></tr>
+                      <tr>
+                      <td>Emial</td>
+                       <td><input type="email" id="email" name="email"></td></tr>
+          
+      </table>
+      
+      <button  type="submit">Guardar</button>
+          </form>
+      
+      </div>
+         
+        </section>
+
+        <br>
+        <section style="color: rgb(255, 255, 255);">
+
+              <tbody id="data1">
+      
+              </tbody >
+             
+          </table>
+          <br>
+          <div align="center">
+            <br>
+            <p>Login</p>
+          <form id='form_login' >
+              <table>
+                      <tr ><td>Usuario</td>
+                      <td><input type="text" id="usuario" name="usuario"></tr></td>
+                      <tr ><td>Contraseña</td>
+                      <td><input type="password" id="contraseña" name="contraseña"></tr></td>
+                      <tr ><td>CI</td>
+                      <td><input type="number" id="ci" name="ci"></td></tr>
+                      <tr ><td>Usuario resposable</td>
+                      <td><input type="text" id="usuResponsable" name="usuResponsable"></td></tr>
+      </table>
+      
+      <button  type="submit">Guardar</button>
+          </form>
+      
+      </div>
+          <!-- <script src="./empleado.js">
+          </script> -->
+          
+        </section>
+<script src="registro.js"></script>
 
             </form>
             <br>
@@ -53,7 +115,7 @@
             <a href="./login.html" style="background-color: aliceblue;">Ingresa aqui</a>
             
           </div>
-          <script src="./login1.js"></script>
+
           <div class="col">
          
           </div>

@@ -5,7 +5,7 @@ const jwt= require('jsonwebtoken')
 const {jwt_secret}= require('../configuracion/parametro');
 
 route.get('/',(req,res) => {
-    let sql = "select codEmpleado ,tipoEmpleado ,sueldo ,codUsuario from empleado;"
+    let sql = "select codEmpleado ,tipoEmpleado ,sueldo ,ci from empleado;"
     conexion.query(sql, (err, resul) => {
         if(err) {
             console.log("Error");
@@ -18,7 +18,7 @@ route.get('/',(req,res) => {
 
 
 route.get('/:codEmpleado',function(req,res) {
-    let sql = "select codEmpleado ,tipoEmpleado ,sueldo ,codUsuario from empleado where codEmpleado =?;"
+    let sql = "select codEmpleado ,tipoEmpleado ,sueldo ,ci from empleado where codEmpleado =?;"
     conexion.query(sql,[req.params.codEmpleado],function(err,resul){
         if(err){
             throw response.json(err.message)
@@ -32,7 +32,7 @@ route.post('/',function(req,res) {
     let data = {
         tipoEmpleado :req.body.tipoEmpleado ,
         sueldo :req.body.sueldo ,
-        codUsuario  :req.body.codUsuario ,        
+        ci  :req.body.ci ,        
     }
     
     let sql = 'Insert into empleado set ?';
@@ -49,11 +49,11 @@ route.put('/:codEmpleado ',function(req,res) {
     let codigo   = req.params.codEmpleado  ;    
     let tipoEmpleado  =req.body.tipoEmpleado  ;
     let sueldo  =req.body.sueldo  ;
-    let codUsuario  =req.body.codUsuario  ;
+    let ci  =req.body.ci  ;
  
 
-    let sql = 'Update empleado set tipoEmpleado = ?, sueldo = ?,codUsuario = ? where codEmpleado = ?';
-        conexion.query(sql,[tipoEmpleado ,sueldo ,codUsuario ,codigo],function(err,resul){
+    let sql = 'Update empleado set tipoEmpleado = ?, sueldo = ?,ci = ? where codEmpleado = ?';
+        conexion.query(sql,[tipoEmpleado ,sueldo ,ci ,codigo],function(err,resul){
             if(err){
                 console.log(err.message);
                 res.json({ mensaje:'No se pudo actualizar un campo' });
