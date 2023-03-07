@@ -29,11 +29,7 @@ insert into empleado values
 (2,'doctor',4000,6810202);
 create table login (
 usuario varchar(20) not null primary key,
-<<<<<<< HEAD
 contraseña varchar(60) not null,
-=======
-contraseña varchar(70) not null,
->>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68
 ci int not null default 0,
 usuResponsable varchar(20) not null, /*usuario que creo este usuario*/
 fechaCreacion timestamp default current_timestamp,
@@ -161,13 +157,10 @@ select * from historial;
 select * from cita;
 select * from factura;
 select * from detalleFactura;
-<<<<<<< HEAD
 select factura.codFactura, detallefactura.codDetalleFactura,detallefactura.codPaciente,factura.numDocumento,
  factura.nombre, servicio.codServicio, servicio.tipoServicio, detalleFactura.costoUnitario,
  date_format(factura.fecha,'%Y-%m-%d %H:%i:%s')AS fecha from servicio, factura, detalleFactura where
- factura.codFactura=detalleFactura.codFactura and servicio.codServicio=detalleFactura.codServicio order by(factura.codFactura) desc;
-=======
->>>>>>> f360b71e3d741a51df68ebebfdc552aec338bb68
+ factura.codFactura=detalleFactura.codFactura and servicio.codServicio=detalleFactura.codServicio order by(factura.codFactura) desc
 
 
 select factura.codFactura,factura.tipoDocumento,factura.numDocumento, factura.nombre, servicio.codServicio, servicio.tipoServicio, detalleFactura.costoUnitario, date_format(factura.fecha,'%Y-%m-%d %H:%i:%s')AS fecha
