@@ -1,7 +1,8 @@
 document.getElementById('insertar-factura-form').addEventListener('submit', function(event) {
     event.preventDefault();
-    
     const url='http://localhost:3000/add';
+
+
     const formData = new FormData(event.target);
     const detalles = [];
     
@@ -49,3 +50,29 @@ document.getElementById('insertar-factura-form').addEventListener('submit', func
     
     detallesTable.insertBefore(newRow, lastRow.nextSibling);
   });
+
+
+// Obtener datos de facturas
+axios.get(url)
+  .then(function(response) {
+    const add = response.data;
+
+    // Agregar filas a tabla facturas
+    const tablaFacturas = document.getElementById('tabla-facturas').getElementsByTagName('tbody')[0];
+    add.forEach(function(factura) {
+      const fila = tablaFacturas.insertRow();
+      fila.insertCell().innerText = factura.codFactura;
+      fila.insertCell().innerText = factura.tipoDocumento;
+      fila.insertCell().innerText = factura.numDocumento;
+      fila.insertCell().innerText = factura.nombre;
+      fila.insertCell().innerText = factura.codServicio;
+      fila.insertCell().innerText = factura.tipoServicio;
+      fila.insertCell().innerText = factura.costoUnitario;
+      fila.insertCell().innerText = factura.fecha;
+    });
+  })
+  .catch(function(error) {
+    console.error(error);
+  });
+
+  

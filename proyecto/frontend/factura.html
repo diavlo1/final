@@ -10,7 +10,18 @@
     <link rel="stylesheet" href="./es_abajo.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> 
     <link rel="shortcut icon" href="../imagenes/logo (1).png">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <style>
+      tr{
+      font-size: 20px;
+      border-collapse:separate;
+      color:white;
+background-color: #6c567b;
+font-size: medium;
+align-items: center;
+      }
 
+     </style>
 </head>
 <body>
       <section>
@@ -72,7 +83,7 @@
             Column
           </div>
           <div class="col">
-            <section style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: black; font-size: medium;">
+            <section style="font-family:'Times New Roman', Times, serif; color: black; font-size: medium;">
               <form id="insertar-factura-form">
                 <label for="tipoDocumento">Tipo de documento:</label>
                 <input type="text" id="tipoDocumento" name="tipoDocumento"><br>
@@ -117,8 +128,27 @@
           </div>
         </div>
       </div>
-      
-
+      <br>
+      <section style="color: black; margin: 2%;">
+        <h2>Tabla de Facturas</h2>
+        <table id="tabla-facturas">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Codigo Factura</th>
+              <th>Tipo de documento</th>
+              <th>Número de documento</th>
+              <th>Nombre</th>
+              <th>Codigo Servicio</th>
+              <th>Nombre de Servicio</th>
+              <th>Costo Unitario</th>
+              <th>Fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </section>
     <footer class ="pie-pagina">
         <div class="group-1">
           <div class="box">

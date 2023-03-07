@@ -66,7 +66,7 @@ route.post('/', async function (req, res) {
 // });
 
 route.get('/',(req, res) => {
-    let sql = "Select id_venta,concat_WS('-',convert(year(fechaoper),char(4)),right(concat('0',convert(month(fechaoper),char(2))),2),right(concat('0',convert(day(fechaoper),char(2))),2)) fechaoper,id_persona,usuario,fech_reg from tventa;"
+    let sql = "select factura.codFactura,factura.tipoDocumento,factura.numDocumento, factura.nombre, servicio.codServicio, servicio.tipoServicio, detalleFactura.costoUnitario, date_format(factura.fecha,'%Y-%m-%d %H:%i:%s')AS fecha from servicio, factura, detalleFactura where factura.codFactura=detalleFactura.codFactura and servicio.codServicio=detalleFactura.codServicio;"
     conexion.query(sql, (err, resul) => {
         if(err) {
             console.log("Error: "+err.message);
